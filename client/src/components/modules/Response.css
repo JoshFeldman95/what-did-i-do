@@ -1,0 +1,31 @@
+.Text-bullet,
+.Text-body {
+  font-family: var(--sans-serif);
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.Text-body {
+  width: 100%;
+  padding: var(--m);
+  transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.Text-body:focus {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  outline: none;
+}
+
+.Text-bullet {
+  flex: 0 0 var(--l);
+  color: var(--light);
+  padding: var(--m);
+}
+
+.Text-bullet:focus {
+  color: var(--dark);
+}
+
+.Text-default {
+  color: var(--light);
+}

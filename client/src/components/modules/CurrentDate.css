@@ -1,0 +1,5 @@
+.CurrentDate {
+  font-family: var(--serif);
+  font-size: 96px;
+  margin-bottom: var(--m);
+}

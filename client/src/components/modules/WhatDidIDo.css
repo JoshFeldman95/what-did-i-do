@@ -1,0 +1,11 @@
+.WhatDidIDo-container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.WhatDidIDo-prompt {
+  font-family: var(--sans-serif);
+  font-size: 32px;
+  margin-bottom: var(--l);
+  font-weight: 300;
+}

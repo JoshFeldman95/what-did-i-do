@@ -1,0 +1,6 @@
+.Prompt {
+  font-family: var(--sans-serif);
+  font-size: 32px;
+  margin-bottom: var(--l);
+  font-weight: 300;
+}
