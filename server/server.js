@@ -27,6 +27,7 @@ const path = require("path"); // provide utilities for working with file and dir
 
 const api = require("./api");
 const auth = require("./auth");
+require("dotenv").config();
 
 // socket stuff
 // const socket = require("./server-socket");
@@ -48,7 +49,7 @@ const databaseName = "journal";
 //   .catch((err) => console.log(`Error connecting to MongoDB: ${err}`));
 
 // connect to MySQL
-const sequelize = new Sequelize("sqlite::memory:");
+const sequelize = new Sequelize(process.env.DATABASE_URL);
 
 try {
   sequelize.authenticate();
@@ -67,7 +68,7 @@ app.use(express.json());
 // set up a session, which will persist login data across requests
 app.use(
   session({
-    secret: "session-secret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
   })
