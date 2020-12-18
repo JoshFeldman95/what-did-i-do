@@ -88,11 +88,15 @@ router.put("/response/text", (req, res) => {
   console.log("PUT /response/text");
   Response.findOne({
     where: { id: req.body.responseID },
-  }).then((responseObj) => {
-    responseObj.text = req.body.text;
-    responseObj.save();
-    res.send({ text: req.body.text });
-  });
+  })
+    .then((responseObj) => {
+      responseObj.text = req.body.text;
+      responseObj.save();
+      res.send({ text: req.body.text });
+    })
+    .catch(() => {
+      console.log(`no response with id ${req.body.responseID}`);
+    });
 });
 
 // auth
