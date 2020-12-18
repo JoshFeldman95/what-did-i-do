@@ -1,7 +1,9 @@
 .responses-mainResponse {
   margin-bottom: 0;
+  font-weight: 900;
 }
 
 .responses-commentary {
   margin-bottom: var(--l);
+  font-weight: 300;
 }
