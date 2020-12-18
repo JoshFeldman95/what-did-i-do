@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = new Sequelize("sqlite::memory:");
+const sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_JADE_URL);
 
 const ResponseSchema = {
   date: {
