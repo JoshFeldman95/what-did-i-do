@@ -48,6 +48,7 @@ function login(req, res) {
 }
 
 function logout(req, res) {
+  console.log("POST /logout");
   req.session.user = null;
   res.send({});
 }
