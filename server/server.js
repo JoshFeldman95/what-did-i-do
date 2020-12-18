@@ -49,8 +49,9 @@ const databaseName = "journal";
 //   .catch((err) => console.log(`Error connecting to MongoDB: ${err}`));
 
 // connect to MySQL
-console.log(process.env.HEROKU_POSTGRESQL_JADE_URL);
-const sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_JADE_URL);
+console.log(process.env.DATABASE_URL);
+const sequelize = new Sequelize(process.env.DATABASE_URL);
+
 try {
   sequelize.authenticate();
   console.log("Connection has been established successfully.");
