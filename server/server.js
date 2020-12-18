@@ -49,9 +49,19 @@ const databaseName = "journal";
 //   .catch((err) => console.log(`Error connecting to MongoDB: ${err}`));
 
 // connect to MySQL
-console.log(process.env.DATABASE_URL);
-const sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_JADE);
-
+if (process.env.HEROKU_POSTGRESQL_JADE_URL) {
+  // the application is executed on Heroku ... use the postgres database
+  sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_JADE_URL, {
+    dialect: "postgres",
+    protocol: "postgres",
+    port: match[4],
+    host: match[3],
+    logging: true, //false
+  });
+} else {
+  // the application is executed on the local machine ... use mysql
+  sequelize = new Sequelize("sqlite::memory:");
+}
 try {
   sequelize.authenticate();
   console.log("Connection has been established successfully.");
