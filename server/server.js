@@ -50,7 +50,7 @@ const databaseName = "journal";
 
 // connect to MySQL
 console.log(process.env.DATABASE_URL);
-const sequelize = new Sequelize(process.env.DATABASE_URL);
+const sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_JADE);
 
 try {
   sequelize.authenticate();
