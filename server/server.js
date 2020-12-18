@@ -49,6 +49,7 @@ const databaseName = "journal";
 //   .catch((err) => console.log(`Error connecting to MongoDB: ${err}`));
 
 // connect to MySQL
+console.log(process.env.DATABASE_URL);
 const sequelize = new Sequelize(process.env.DATABASE_URL);
 
 try {
