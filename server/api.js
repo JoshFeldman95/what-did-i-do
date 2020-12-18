@@ -69,12 +69,9 @@ router.post("/responses", auth.ensureLoggedIn, (req, res) => {
 
 router.delete("/responses", (req, res) => {
   console.log("DELETE /responses");
-  Response.findOne({ where: { id: { [Op.in]: req.body.responseIDs } } }).then(
-    (responseToRemove) => {
-      responseToRemove.destroy();
-      res.send({ responseID: responseToRemove.id });
-    }
-  );
+  Response.destroy({ where: { id: { [Op.in]: req.body.responseIDs } } }).then((out) => {
+    res.send({ responseID: req.body.responseIDs });
+  });
 });
 
 // /response/text
