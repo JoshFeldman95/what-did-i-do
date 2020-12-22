@@ -37,7 +37,8 @@ const User = sequelize.define("User", UserSchema);
 
 User.hasMany(Response, { foreignKey: "userId" });
 
-Response.sync();
 User.sync();
+
+Response.sync();
 
 module.exports = { Response, User };
