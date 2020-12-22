@@ -56,6 +56,7 @@ router.get("/responses", (req, res) => {
     .then((responses) => {
       console.log(responses);
       const responseIDs = responses.map((ans) => ans.id);
+      responseIDs.sort();
       res.send({ responseIDs: responseIDs });
     })
     .catch((err) => {
