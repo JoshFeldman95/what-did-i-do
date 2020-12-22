@@ -22,7 +22,6 @@
 const http = require("http");
 const express = require("express"); // backend framework for our node server.
 const session = require("express-session"); // library that stores info about each connected user
-const { Sequelize } = require("sequelize");
 const path = require("path"); // provide utilities for working with file and directory paths
 
 const api = require("./api");
@@ -36,7 +35,6 @@ require("dotenv").config();
 // TODO change connection URL after setting up your team database
 // const mongoConnectionURL = "FILL ME IN";
 // TODO change database name to the name you chose
-const databaseName = "journal";
 
 // connect to mongodb
 // mongoose
@@ -47,17 +45,6 @@ const databaseName = "journal";
 //   })
 //   .then(() => console.log("Connected to MongoDB"))
 //   .catch((err) => console.log(`Error connecting to MongoDB: ${err}`));
-
-// connect to MySQL
-console.log(process.env.DATABASE_URL);
-const sequelize = new Sequelize(process.env.DATABASE_URL);
-
-try {
-  sequelize.authenticate();
-  console.log("Connection has been established successfully.");
-} catch (error) {
-  console.error("Unable to connect to the database:", error);
-}
 
 // create a new express server
 const app = express();

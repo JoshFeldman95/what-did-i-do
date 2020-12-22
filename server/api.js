@@ -52,15 +52,20 @@ router.get("/responses", (req, res) => {
       date: req.query.date,
       userId: req.query.userId,
     },
-  }).then((responses) => {
-    const responseIDs = responses.map((ans) => ans.id);
-    res.send({ responseIDs: responseIDs });
-  });
+  })
+    .then((responses) => {
+      console.log(responses);
+      const responseIDs = responses.map((ans) => ans.id);
+      res.send({ responseIDs: responseIDs });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 router.post("/responses", auth.ensureLoggedIn, (req, res) => {
   console.log("POST /responses");
-  Response.create({ date: req.body.date, response: "", UserId: req.body.userId }).then(
+  Response.create({ date: req.body.date, response: "", userId: req.body.userId }).then(
     (newResponse) => {
       res.send({ responseID: newResponse.id });
     }

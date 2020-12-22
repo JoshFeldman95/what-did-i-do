@@ -1,5 +1,14 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_JADE_URL);
+require("dotenv").config();
+console.log(process.env.DATABASE_URL);
+const sequelize = new Sequelize(process.env.DATABASE_URL);
+
+try {
+  sequelize.authenticate();
+  console.log("Connection has been established successfully.");
+} catch (error) {
+  console.error("Unable to connect to the database:", error);
+}
 
 const ResponseSchema = {
   date: {
@@ -26,8 +35,7 @@ const UserSchema = {
 const Response = sequelize.define("Response", ResponseSchema);
 const User = sequelize.define("User", UserSchema);
 
-Response.hasOne(User);
-User.hasMany(Response);
+User.hasMany(Response, { foreignKey: "userId" });
 
 Response.sync();
 User.sync();
