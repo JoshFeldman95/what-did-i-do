@@ -124,20 +124,19 @@ class Responses extends Component {
 
   responseElement = (ID, indent, defaultText, className, isFocused) => {
     return (
-      <div className={className}>
-        <Response
-          key={ID}
-          responseID={ID}
-          isFocused={isFocused}
-          indent={indent}
-          defaultText={defaultText}
-          isEmpty={this.responseIsEmpty}
-          hasContent={this.responseIsFilled}
-          requestFocus={this.assignFocus}
-          sendFocusDown={this.moveFocusDown}
-          sendFocusUp={this.moveFocusUp}
-        />
-      </div>
+      <Response
+        key={ID}
+        className={className}
+        responseID={ID}
+        isFocused={isFocused}
+        indent={indent}
+        defaultText={defaultText}
+        isEmpty={this.responseIsEmpty}
+        hasContent={this.responseIsFilled}
+        requestFocus={this.assignFocus}
+        sendFocusDown={this.moveFocusDown}
+        sendFocusUp={this.moveFocusUp}
+      />
     );
   };
 
