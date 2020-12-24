@@ -155,7 +155,7 @@ class Responses extends Component {
         return this.responseElement(ID, 2, "Any thoughts?", "responses-commentary", isFocused);
       }
     });
-    return <div>{responses}</div>;
+    return <>{responses}</>;
   }
 }
 

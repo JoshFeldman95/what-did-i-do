@@ -99,7 +99,7 @@ class Response extends Component {
   render() {
     const textBodyClass = this.isDefault() ? "Text-body Text-default" : "Text-body";
     return (
-      <div className="Text-container u-flex">
+      <div className={`${this.props.className} Text-container u-flex`}>
         <div className="Text-bullet">{"#".repeat(this.props.indent)}</div>
         <ContentEditable
           className={textBodyClass}
