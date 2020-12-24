@@ -46,7 +46,7 @@ class WhatDidIDo extends Component {
             <Responses date={this.state.date} userId={this.props.userId} />
           </>
         ) : (
-          <div className="WhatDidIDo-prompt">Please log in.</div>
+          <></>
         )}
       </div>
     );
